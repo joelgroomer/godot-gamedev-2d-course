@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0d6t6a25h7up"]
+
+[ext_resource type="Texture2D" uid="uid://c70wubqksbjw3" path="res://icon.svg" id="1_2nsvl"]
+
+[node name="MyLevel" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(333, 159)
+texture = ExtResource("1_2nsvl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(852, 155)
+texture = ExtResource("1_2nsvl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(584, 321)
+scale = Vector2(0.382812, 1)
+texture = ExtResource("1_2nsvl")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(256, 490)
+rotation = -0.785398
+scale = Vector2(0.382812, 1)
+texture = ExtResource("1_2nsvl")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(925, 489)
+rotation = 0.523599
+scale = Vector2(0.382812, 1)
+texture = ExtResource("1_2nsvl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(592.75, 525.5)
+scale = Vector2(5.03516, 0.242188)
+texture = ExtResource("1_2nsvl")
