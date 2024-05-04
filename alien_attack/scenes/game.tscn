@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://qi2e0jiw0fvf"]
+[gd_scene load_steps=6 format=3 uid="uid://qi2e0jiw0fvf"]
 
 [ext_resource type="Texture2D" uid="uid://tbffu6xvc3q0" path="res://assets/textures/bg.png" id="1_ass46"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ikstq"]
 [ext_resource type="PackedScene" uid="uid://bymh3anbhywmw" path="res://scenes/player.tscn" id="2_5jjhf"]
 [ext_resource type="PackedScene" uid="uid://dmeadsuoan8ln" path="res://scenes/enemy_spawner.tscn" id="3_r00go"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugppn"]
+size = Vector2(0.450791, 242.78)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ikstq")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1280.0
@@ -16,3 +21,17 @@ stretch_mode = 1
 position = Vector2(194, 342)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_r00go")]
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(-320, 11)
+scale = Vector2(264.968, 9.96404)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(0.343847, 35.1765)
+scale = Vector2(1.01957, 0.377418)
+shape = SubResource("RectangleShape2D_ugppn")
+
+[connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
+[connection signal="area_entered" from="DeathZone" to="." method="_on_death_zone_area_entered"]

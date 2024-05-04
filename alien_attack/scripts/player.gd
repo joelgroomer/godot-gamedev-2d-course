@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal took_damage
+
 var speed = 300.0
 var rocket_scene = preload("res://scenes/rocket.tscn")
 @onready var rocket_container = $RocketContainer		# An empty node used as a container to break the connection between player's position and rocket's (child) position
@@ -48,3 +50,9 @@ func shoot():
 	rocket_container.add_child(rocket_instance)
 	rocket_instance.global_position = global_position
 	rocket_instance.global_position.x += 75
+
+func take_damage():
+	emit_signal("took_damage")
+	
+func die():
+	queue_free()
