@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://r1r7l0kiqsrp"]
+[gd_scene load_steps=7 format=3 uid="uid://r1r7l0kiqsrp"]
 
 [ext_resource type="Texture2D" uid="uid://cbp20jildw8jj" path="res://purple.png" id="1_5d367"]
 [ext_resource type="Script" path="res://level.gd" id="1_wcrg6"]
@@ -8,30 +8,29 @@
 [sub_resource type="LabelSettings" id="LabelSettings_7xw0n"]
 font_size = 64
 
+[sub_resource type="LabelSettings" id="LabelSettings_bi6ej"]
+font_size = 42
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wcrg6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
 layer = -10
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
-offset_left = -1344.0
-offset_top = -633.0
-offset_right = -192.0
-offset_bottom = 15.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3.31242, 3.31242)
 texture = ExtResource("1_5d367")
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("2_0xh43")]
-position = Vector2(593, 185)
-
-[node name="Maze" parent="." instance=ExtResource("4_qjwu3")]
-z_index = -90
-position = Vector2(624, 296)
-
-[node name="Start Label" type="Label" parent="."]
+[node name="Start Label" type="Label" parent="Graphics"]
 z_index = -10
 offset_left = 506.0
 offset_top = 17.0
@@ -40,7 +39,7 @@ offset_bottom = 105.0
 text = "START"
 label_settings = SubResource("LabelSettings_7xw0n")
 
-[node name="End Label" type="Label" parent="."]
+[node name="End Label" type="Label" parent="Graphics"]
 z_index = -10
 offset_left = 2793.0
 offset_top = -472.0
@@ -48,5 +47,22 @@ offset_right = 2983.0
 offset_bottom = -384.0
 text = "END"
 label_settings = SubResource("LabelSettings_7xw0n")
+
+[node name="Tutorial Label" type="Label" parent="Graphics"]
+offset_left = 50.0
+offset_top = -419.0
+offset_right = 1170.0
+offset_bottom = -239.0
+text = "Move the saucer through the maze from START to END.
+Use your arrow keys or ASDW keys to move.
+Don't hit the walls or you'll start over!"
+label_settings = SubResource("LabelSettings_bi6ej")
+
+[node name="Player" parent="." instance=ExtResource("2_0xh43")]
+position = Vector2(593, 185)
+
+[node name="Maze" parent="." instance=ExtResource("4_qjwu3")]
+z_index = -90
+position = Vector2(624, 296)
 
 [connection signal="body_entered" from="Maze" to="." method="_on_maze_body_entered"]
