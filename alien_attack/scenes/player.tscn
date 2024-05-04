@@ -8,6 +8,7 @@ radius = 181.004
 height = 533.998
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
 motion_mode = 1
 script = ExtResource("1_e60my")
 
