@@ -11,3 +11,7 @@ func _physics_process(delta):
 
 func _on_screen_exited():
 	queue_free()	# deletes the rocket node as it leaves the screen
+
+func _on_area_entered(area):
+	queue_free()
+	area.die()
