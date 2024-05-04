@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://r1r7l0kiqsrp"]
+[gd_scene load_steps=5 format=3 uid="uid://r1r7l0kiqsrp"]
 
 [ext_resource type="Texture2D" uid="uid://cbp20jildw8jj" path="res://purple.png" id="1_5d367"]
 [ext_resource type="Script" path="res://level.gd" id="1_wcrg6"]
 [ext_resource type="PackedScene" uid="uid://4yo2th38dx2" path="res://player.tscn" id="2_0xh43"]
+[ext_resource type="PackedScene" uid="uid://dm6lwmj3555vd" path="res://maze.tscn" id="4_qjwu3"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wcrg6")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -100
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -693.0
+offset_top = -1957.0
+offset_right = 459.0
+offset_bottom = -1309.0
+scale = Vector2(8.09342, 8.09342)
 texture = ExtResource("1_5d367")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_0xh43")]
 position = Vector2(593, 185)
+
+[node name="Maze" parent="." instance=ExtResource("4_qjwu3")]
+z_index = -90
+position = Vector2(624, 296)
+
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
