@@ -25,4 +25,4 @@ position = Vector2(593, 185)
 z_index = -90
 position = Vector2(624, 296)
 
-[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
+[connection signal="body_entered" from="Maze" to="." method="_on_maze_body_entered"]
