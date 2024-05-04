@@ -3,6 +3,8 @@ extends Node2D
 @onready var player = $Player
 @onready var hud = $UI/HUD
 @onready var ui = $UI
+@onready var enemy_hit_sound = $EnemyHitSound
+@onready var damage_sound = $DamageSound
 var game_over_scene = preload("res://scenes/game_over_screen.tscn")
 var lives = 3
 var score = 0
@@ -24,6 +26,7 @@ func _on_player_took_damage():
 	lives -= 1
 	print(lives)
 	hud.set_lives_left(lives)
+	damage_sound.play()
 	if lives == 0:
 		player.die()
 		await get_tree().create_timer(1.5).timeout
@@ -39,3 +42,4 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance):
 func _on_enemy_died():
 	score += 100
 	hud.set_score_label(score)
+	enemy_hit_sound.play()
