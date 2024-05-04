@@ -8,13 +8,16 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_wcrg6")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 z_index = -100
-offset_left = -693.0
-offset_top = -1957.0
-offset_right = 459.0
-offset_bottom = -1309.0
-scale = Vector2(8.09342, 8.09342)
+offset_left = -1344.0
+offset_top = -633.0
+offset_right = -192.0
+offset_bottom = 15.0
+scale = Vector2(3.31242, 3.31242)
 texture = ExtResource("1_5d367")
 stretch_mode = 1
 
