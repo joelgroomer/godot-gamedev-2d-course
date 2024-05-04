@@ -18,7 +18,7 @@ func _process(delta):
 	pass
 
 func _on_death_zone_area_entered(area):
-	area.die()
+	area.queue_free()
 
 func _on_player_took_damage():
 	lives -= 1
