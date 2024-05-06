@@ -1,8 +1,8 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var speed = 125
-@export var jump_force = -200.0
+@export var jump_force = 200
 @export var gravity = 400
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -16,7 +16,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_force
+		jump(jump_force)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -29,6 +29,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 	update_animations(direction)
+
+func jump(force):
+	velocity.y = -force
 	
 func update_animations(direction):
 	if is_on_floor():
