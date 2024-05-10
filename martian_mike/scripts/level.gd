@@ -8,7 +8,6 @@ extends Node2D
 func _ready():
 	var traps = get_tree().get_nodes_in_group("traps")
 	for trap in traps:
-		print(trap)
 		trap.connect("touched_player", _on_trap_touched_player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
