@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://g34jacae5773"]
+[gd_scene load_steps=10 format=3 uid="uid://g34jacae5773"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_fxq2f"]
 [ext_resource type="PackedScene" uid="uid://32hbqmui7n84" path="res://scenes/bg.tscn" id="2_wruy5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://di4icr7b46twy" path="res://scenes/exit.tscn" id="6_hrj3f"]
 [ext_resource type="PackedScene" uid="uid://beewdft05w5fn" path="res://scenes/start.tscn" id="7_mvve1"]
 [ext_resource type="PackedScene" uid="uid://b60tvaeowb2ic" path="res://scenes/player.tscn" id="8_kljo8"]
+[ext_resource type="PackedScene" uid="uid://b11rn8t88iawd" path="res://scenes/ui_layer.tscn" id="9_2nsav"]
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource("1_fxq2f")
@@ -33,3 +34,5 @@ position = Vector2(65, 135)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Traps" type="Node2D" parent="."]
+
+[node name="UILayer" parent="." instance=ExtResource("9_2nsav")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://i7kyoj7s25w1"]
+[gd_scene load_steps=15 format=3 uid="uid://i7kyoj7s25w1"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_uapky"]
 [ext_resource type="PackedScene" uid="uid://b60tvaeowb2ic" path="res://scenes/player.tscn" id="2_6mv8g"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://t0g064fju2qp" path="res://scenes/tile_map.tscn" id="7_stgh0"]
 [ext_resource type="PackedScene" uid="uid://beewdft05w5fn" path="res://scenes/start.tscn" id="9_gao2u"]
 [ext_resource type="PackedScene" uid="uid://di4icr7b46twy" path="res://scenes/exit.tscn" id="10_tdta2"]
+[ext_resource type="PackedScene" uid="uid://b11rn8t88iawd" path="res://scenes/ui_layer.tscn" id="12_s0hsr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4jiq"]
 size = Vector2(43.2099, 20)
@@ -77,5 +78,7 @@ position = Vector2(246, 208)
 [node name="Player" parent="." instance=ExtResource("2_6mv8g")]
 position = Vector2(234, 121)
 collision_mask = 5
+
+[node name="UILayer" parent="." instance=ExtResource("12_s0hsr")]
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
